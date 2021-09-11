@@ -1,0 +1,13 @@
+{
+    "name": "runtimeguard",
+    "version": "2.0.1",
+    "description": "Validate Node.js application dependencies and configuration at runtime, with ease. ",
+    "main": "index.js",
+    "repository": "https://github.com/icstudios/runtimeguard",
+    "author": "Daniel Hyders <git@bean.codes>",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+      "esm": "^3.2.25"
+    }
+}

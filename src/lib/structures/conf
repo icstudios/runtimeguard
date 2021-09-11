@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+// CommonJS modules are supported.
+
+module.exports = class RuntimeSchema {
+    /**
+     * @param {string} options.schema The version of the schema.
+     * @param {string} options.name The name of the app that RuntimeGuard is pre-loading.
+     * @param {string} options.manifest The path to the NPM/Yarn package.json file.
+     * @param {object} options.dependentFiles An array of dependent files.
+     * @param {object} options.runtimeOptions A list of options that will determine how RuntimeGuard runs the app.
+     * @param {boolean} options.runtimeOptions.esm If true, RuntimeGuard will automatically run .load() in ESM mode.
+     * @param {function} options.runApp The function that will initiate the app.
+    */
+    constructor(options) {
+        this.schema = options.schema;
+        this.name = options.name;
+        this.manifest = options.manifest;
+        this.dependentFiles = options.dependentFiles;
+        this.runtimeOptions = options.runtimeOptions;
+        this.runApp = options.runApp;
+    }
+};
