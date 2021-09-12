@@ -10,8 +10,10 @@ function checkApplicationDepMod(mod) {
         require.resolve(mod);
         return true;
     } catch (e) {
-        console.log(`\nThe application dependent module "${mod}" is not installed. Please run npm install or yarn install, then try again.`);
-        return process.exit(2);
+        if (e.message == "Cannot find module '" + mod + "'") {
+            console.log(`\nThe application dependent module "${mod}" is not installed. Please run npm install or yarn install, then try again.`);
+            process.exit(2);
+        };
     };
 };
 

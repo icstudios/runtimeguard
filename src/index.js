@@ -39,16 +39,16 @@ async function runtime() {
 
     const { checkApplicationDepMod, checkApplicationDepFile, loadConfiguration } = require(path.join(__dirname + "/lib/module.js"));
 
-    if (process.eos_conf_path == undefined) {
-        console.log(`A RuntimeGuard runtime configuration path was not found. Checking if ../eos.conf.js exists..`);
+    if (process.rg_conf_path == undefined) {
+        console.log(`A RuntimeGuard runtime configuration path was not found. Checking if ../rg.conf.js exists..`);
         if (!fs.existsSync(path.join(__dirname + "/../rg.conf.js"))) {
             console.log(`A RuntimeGuard runtime configuration file was not able to be located. Please ask the application maintainer to specify a rg_conf_path configuration path in the startpoint file.`);
             return process.exit(1);
         };
-        process.eos_conf_path = __dirname + "/../rg.conf.js";
+        process.rg_conf_path = __dirname + "/../rg.conf.js";
     };
 
-    const configuration = loadConfiguration(process.eos_conf_path);
+    const configuration = loadConfiguration(process.rg_conf_path);
     process.eosConfiguration = configuration;
 
 
